@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form Project - No CSS</title>
+
+    <!-- Added CSS for Center + Responsive + Bigger Look -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background: #f8f8f8;
+        }
+
+        h1, h2, p {
+            text-align: center;
+        }
+
+        form {
+            width: 100%;
+            max-width: 800px;          /* bada form box */
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        fieldset {
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+
+        legend {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        label {
+            display: inline-block;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        input, select, textarea, output {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        input[type="submit"],
+        input[type="reset"],
+        input[type="button"] {
+            width: auto;
+            padding: 12px 20px;
+            margin: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            background: #007BFF;
+            color: white;
+        }
+
+        input[type="reset"] {
+            background: #dc3545;
+        }
+
+        input[type="button"] {
+            background: #28a745;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover,
+        input[type="button"]:hover {
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            form {
+                padding: 15px;
+                max-width: 100%;
+            }
+
+            input, select, textarea {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Complete HTML Form Project</h1>
+    <p>This project demonstrates various HTML form tags and attributes without using CSS.</p>
+
+    <!-- Main Registration Form -->
+    <h2>User Registration Form</h2>
+    <form action="/submit-registration" method="post" enctype="multipart/form-data" name="registrationForm" id="regForm" autocomplete="on" novalidate target="_blank">
+        
+        <fieldset>
+            <legend>Personal Information</legend>
+            
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required maxlength="50" placeholder="Enter your first name" autocomplete="given-name">
+            
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required maxlength="50" placeholder="Enter your last name" autocomplete="family-name">
+            
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required placeholder="your.email@example.com" autocomplete="email">
+            
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" autocomplete="tel">
+            
+            <label for="birthdate">Date of Birth:</label>
+            <input type="date" id="birthdate" name="birthdate" min="1900-01-01" max="2010-12-31">
+            
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="13" max="120" step="1">
+        </fieldset>
+
+        <fieldset>
+            <legend>Account Details</legend>
+            
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required minlength="3" maxlength="20" pattern="[a-zA-Z0-9_]+" placeholder="Enter username" autocomplete="username">
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required minlength="8" autocomplete="new-password">
+            
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required minlength="8" autocomplete="new-password">
+            
+            <label for="profilePic">Profile Picture:</label>
+            <input type="file" id="profilePic" name="profilePic" accept="image/*" multiple>
+        </fieldset>
+
+        <fieldset>
+            <legend>Preferences</legend>
+            
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+                <option value="prefer-not-to-say">Prefer not to say</option>
+            </select>
+            
+            <label for="country">Country:</label>
+            <select id="country" name="country" size="1">
+                <optgroup label="North America">
+                    <option value="us">United States</option>
+                    <option value="ca">Canada</option>
+                    <option value="mx">Mexico</option>
+                </optgroup>
+                <optgroup label="Europe">
+                    <option value="uk">United Kingdom</option>
+                    <option value="fr">France</option>
+                    <option value="de">Germany</option>
+                </optgroup>
+            </select>
+            
+            <label for="languages">Languages (Hold Ctrl/Cmd for multiple):</label>
+            <select id="languages" name="languages" multiple size="4">
+                <option value="english">English</option>
+                <option value="spanish">Spanish</option>
+                <option value="french">French</option>
+                <option value="german">German</option>
+                <option value="italian">Italian</option>
+                <option value="portuguese">Portuguese</option>
+            </select>
+            
+            <fieldset>
+                <legend>Interests (Check all that apply)</legend>
+                <input type="checkbox" id="sports" name="interests" value="sports"><label for="sports">Sports</label><br>
+                <input type="checkbox" id="music" name="interests" value="music"><label for="music">Music</label><br>
+                <input type="checkbox" id="travel" name="interests" value="travel"><label for="travel">Travel</label><br>
+                <input type="checkbox" id="technology" name="interests" value="technology" checked><label for="technology">Technology</label><br>
+                <input type="checkbox" id="cooking" name="interests" value="cooking"><label for="cooking">Cooking</label>
+            </fieldset>
+            
+            <fieldset>
+                <legend>Subscription Type</legend>
+                <input type="radio" id="free" name="subscription" value="free" checked><label for="free">Free</label><br>
+                <input type="radio" id="premium" name="subscription" value="premium"><label for="premium">Premium ($9.99/month)</label><br>
+                <input type="radio" id="enterprise" name="subscription" value="enterprise"><label for="enterprise">Enterprise ($29.99/month)</label>
+            </fieldset>
+            
+            <label for="bio">Biography:</label>
+            <textarea id="bio" name="bio" rows="5" cols="50" maxlength="500" placeholder="Tell us about yourself..." wrap="soft"></textarea>
+            
+            <label for="website">Personal Website:</label>
+            <input type="url" id="website" name="website" placeholder="https://example.com">
+            
+            <label for="favoriteColor">Favorite Color:</label>
+            <input type="color" id="favoriteColor" name="favoriteColor" value="#ff0000">
+            
+            <label for="wakeupTime">Preferred Wake-up Time:</label>
+            <input type="time" id="wakeupTime" name="wakeupTime" min="05:00" max="11:00">
+            
+            <label for="experience">Years of Experience:</label>
+            <input type="range" id="experience" name="experience" min="0" max="50" value="5" step="1">
+            <output for="experience">5</output> years
+        </fieldset>
+
+        <fieldset>
+            <legend>Additional Information</legend>
+            
+            <label for="referral">Referral Code:</label>
+            <input type="text" id="referral" name="referral" readonly value="REF12345">
+            
+            <label for="newsletter">
+                <input type="checkbox" id="newsletter" name="newsletter" value="yes">Subscribe to Newsletter
+            </label>
+            
+            <label for="terms">
+                <input type="checkbox" id="terms" name="terms" value="agreed" required>I agree to the Terms and Conditions (Required)
+            </label>
+        </fieldset>
+
+        <input type="submit" value="Register Account" name="submitBtn">
+        <input type="reset" value="Clear Form" name="resetBtn">
+        <input type="button" value="Preview" onclick="alert('Preview functionality would go here')" name="previewBtn">
+        
+        <input type="hidden" name="formVersion" value="2.1">
+        <input type="hidden" name="timestamp" value="2024-01-01">
+    </form>
+
+    <!-- Search Form -->
+    <h2>Search Form</h2>
+    <form action="/search" method="get" name="searchForm">
+        <label for="searchQuery">Search:</label>
+        <input type="search" id="searchQuery" name="q" placeholder="Enter search terms..." required>
+        <input type="submit" value="Search">
+    </form>
+
+    <!-- Contact Form -->
+    <h2>Contact Form</h2>
+    <form action="mailto:contact@example.com" method="post" enctype="text/plain" name="contactForm">
+        <label for="contactName">Your Name:</label>
+        <input type="text" id="contactName" name="name" required>
+        
+        <label for="contactEmail">Your Email:</label>
+        <input type="email" id="contactEmail" name="email" required>
+        
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required>
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="6" cols="40" required></textarea>
+        
+        <input type="submit" value="Send Message">
+    </form>
+
+    <!-- File Upload Form -->
+    <h2>File Upload Form</h2>
+    <form action="/upload" method="post" enctype="multipart/form-data" name="uploadForm">
+        <label for="documents">Upload Documents:</label>
+        <input type="file" id="documents" name="documents" multiple accept=".pdf,.doc,.docx,.txt">
+        
+        <label for="images">Upload Images:</label>
+        <input type="file" id="images" name="images" accept="image/*" multiple>
+        
+        <input type="submit" value="Upload Files">
+    </form>
+
+    <!-- Survey Form with Advanced Elements -->
+    <h2>Survey Form</h2>
+    <form action="/survey" method="post" name="surveyForm" autocomplete="off">
+        <fieldset disabled>
+            <legend>Coming Soon Section (Disabled)</legend>
+            <label for="futureFeature">Future Feature:</label>
+            <input type="text" id="futureFeature" name="futureFeature" value="This section is disabled">
+        </fieldset>
+
+        <fieldset>
+            <legend>Rating</legend>
+            <label for="satisfaction">Satisfaction Level (1-10):</label>
+            <input type="range" id="satisfaction" name="satisfaction" min="1" max="10" value="5" step="1" list="satisfaction-marks">
+            <datalist id="satisfaction-marks">
+                <option value="1" label="Poor">
+                <option value="3" label="Fair">
+                <option value="5" label="Good">
+                <option value="7" label="Very Good">
+                <option value="10" label="Excellent">
+            </datalist>
+            
+            <label for="month">Select Month:</label>
+            <input type="month" id="month" name="month">
+            
+            <label for="week">Select Week:</label>
+            <input type="week" id="week" name="week">
+        </fieldset>
+
+        <input type="submit" value="Submit Survey" formaction="/survey-submit" formmethod="post" formnovalidate>
+        <input type="submit" value="Save Draft" formaction="/survey-draft" formmethod="post">
+    </form>
+
+    <p><strong>Form Attributes Demonstrated:</strong></p>
+    <ul>
+        <li><strong>Form attributes:</strong> action, method, enctype, name, id, autocomplete, novalidate, target</li>
+        <li><strong>Input types:</strong> text, email, tel, date, number, password, file, url, color, time, range, search, hidden, submit, reset, button, checkbox, radio</li>
+        <li><strong>Input attributes:</strong> required, maxlength, minlength, placeholder, pattern, min, max, step, multiple, accept, readonly, disabled, checked, value, autocomplete</li>
+        <li><strong>Other elements:</strong> select, option, optgroup, textarea, fieldset, legend, label, datalist</li>
+        <li><strong>Advanced attributes:</strong> formaction, formmethod, formnovalidate, size, wrap, cols, rows</li>
+    </ul>
+
+    <script>
+        // Simple JavaScript to enhance form functionality
+        document.getElementById('experience').oninput = function() {
+            document.querySelector('output[for="experience"]').textContent = this.value;
+        };
+        
+        // Form validation example
+        document.getElementById('regForm').onsubmit = function(e) {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                e.preventDefault();
+                return false;
+            }
+        };
+    </script>
+</body>
+</html>
